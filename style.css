@@ -13,6 +13,129 @@ html {
   font-size: 20px;
 }
 
-* {
-  box-sizing: content-box;
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  box-sizing: border-box; 
 }
+
+a {text-decoration: none; color: var(--menu-text-color);  display: block;}
+
+.wrapper { display: flex; width: 100vw; height: 100vh }
+
+header { 
+  background-color: var(--header-text-color);
+  color: var(--menu-text-color);
+  flex-basis: 10%;
+  padding: 2em 3em;
+}
+
+nav { 
+  margin-block: 2rem;
+}
+
+ul {list-style-type: none }
+
+ul > a { margin-block: 0.4em }
+
+.content {
+  flex-basis: 90%;
+}
+
+.content-inner {
+  display: grid;
+  position: relative;
+  height: 100%;
+  grid-template-columns: 1fr;
+  font-size: 0.8rem;
+}
+
+.content-date { 
+  text-align: center;
+  padding-block: 0.5rem;
+  color: var(--header-text-color);
+  font-weight: bold;
+ }
+
+section { padding-block: 3rem; padding-inline: var(--spacing) }
+
+footer { 
+  background-color: var(--footer-background);
+  color: var(--footer-text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer > .footer-description > p { font-size: 0.8rem; color: var(--footer-text-color); font-weight: bold; }
+
+.modal { 
+  position: absolute;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  background-color: var(--menu-text-color);
+  transition: all 200ms;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-open { 
+  left: 0;
+}
+
+.modal-contact {
+  width: 60%;
+  height: 50%;
+  background-color: var(--menu-background);
+  color: var(--menu-text-color);
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 10px;
+  right: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.modal-close > div { font-size: 1.2rem }
+
+.modal-contact > p > a {color: var(--menu-text-color); display: inline-block; }
+
+/* Triggering Modal  */
+
+.none { display: none }
+
+.background-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 480px) {
+  .wrapper { display: block; position: absolute; }
+  body { position: relative };
+  .content-inner { position: static !important; } ;
+  nav > ul { display: flex; gap: 0.5rem }
+  .modal { top: 0 }
+  .modal-contact { gap: 10px; width: 80%; }
+}
+
+
+
+
